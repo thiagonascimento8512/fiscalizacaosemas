@@ -23,9 +23,6 @@ class AppTheme {
       primaryContainer: _lightPrimaryVariantColor,
       secondary: _lightSecondaryColor,
     ),
-    buttonTheme: const ButtonThemeData(
-      textTheme: ButtonTextTheme.primary,
-    ),
   );
 
   static final ThemeData darkTheme = ThemeData(
