@@ -7,7 +7,7 @@ class OrdemFiscalizacao {
   String dataCadastro;
   String periodoFiscalizacao;
   String descricaoAtividade;
-  List<Demanda>? demandas;
+  List<Demanda> demandas;
   List<String> equipe;
 
   OrdemFiscalizacao({
@@ -17,7 +17,7 @@ class OrdemFiscalizacao {
     required this.dataCadastro,
     required this.periodoFiscalizacao,
     required this.descricaoAtividade,
-    this.demandas,
     required this.equipe,
+    this.demandas = const [],
   });
 }

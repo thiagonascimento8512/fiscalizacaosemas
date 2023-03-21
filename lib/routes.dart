@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:semasfiscalizacao/home_screen.dart';
 
+import 'model/ordem_fiscalizacao_model.dart';
 import 'screens/ordem_fiscalizacao/ordem_fiscalizacao_details_screen.dart';
 import 'screens/ordem_fiscalizacao/ordem_fiscalizacao_screen.dart';
 
@@ -21,7 +22,9 @@ class Routes {
         );
       case ordemFiscalizacaoDetails:
         return MaterialPageRoute(
-          builder: (_) => const OrdemFiscalizacaoDetailsScreen(),
+          builder: (_) => OrdemFiscalizacaoDetailsScreen(
+            ordemFiscalizacao: settings.arguments as OrdemFiscalizacao,
+          ),
         );
       default:
         return MaterialPageRoute(

@@ -21,7 +21,7 @@ class _MyAppState extends State<MyApp> {
       theme: themeManager.lightTheme,
       darkTheme: themeManager.darkTheme,
       themeMode: themeManager.themeMode,
-      initialRoute: Routes.ordemFiscalizacaoDetails,
+      initialRoute: Routes.ordemFiscalizacao,
       onGenerateRoute: Routes.onGenerateRoute,
     );
   }

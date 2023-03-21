@@ -3,6 +3,7 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:semasfiscalizacao/providers/ordem_fiscalizacao_provider.dart';
 
 import '../../model/ordem_fiscalizacao_model.dart';
+import '../../routes.dart';
 
 class OrdemFiscalizacaoScreen extends StatefulWidget {
   const OrdemFiscalizacaoScreen({super.key});
@@ -57,7 +58,7 @@ class _OrdemFiscalizacaoScreenState extends State<OrdemFiscalizacaoScreen> {
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  '/ordem_fiscalizacao/detalhes',
+                  Routes.ordemFiscalizacaoDetails,
                   arguments: ordensFiscalizacao[index],
                 );
               },
