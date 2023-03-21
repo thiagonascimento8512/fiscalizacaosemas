@@ -10,6 +10,7 @@ class OrdemFiscalizacaoProvider {
     OrdemFiscalizacao ordemFiscalizacao = OrdemFiscalizacao(
       codigo: '0-23-02/080',
       setorCadastro: 'GEFLOR - Gerência de Fiscalização Florestal',
+      status: 'Pendente',
       dataCadastro: '22/08/2018',
       periodoFiscalizacao: '22/08/2018 a 22/08/2018',
       descricaoAtividade: 'Não atendimento de notificação',
