@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:semasfiscalizacao/screens/ordem_fiscalizacao/ordem_fiscalizacao_screen.dart';
+import 'package:semasfiscalizacao/routes.dart';
 
 import 'theme/theme_manager.dart';
 
@@ -21,7 +21,8 @@ class _MyAppState extends State<MyApp> {
       theme: themeManager.lightTheme,
       darkTheme: themeManager.darkTheme,
       themeMode: themeManager.themeMode,
-      home: const OrdemFiscalizacaoScreen(),
+      initialRoute: Routes.ordemFiscalizacaoDetails,
+      onGenerateRoute: Routes.onGenerateRoute,
     );
   }
 }
