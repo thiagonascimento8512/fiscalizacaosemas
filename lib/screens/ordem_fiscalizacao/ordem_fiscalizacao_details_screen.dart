@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:semasfiscalizacao/model/ordem_fiscalizacao_model.dart';
+import 'package:semasfiscalizacao/routes.dart';
 
 import '../../model/demanda_model.dart';
 
@@ -87,12 +88,21 @@ class _OrdemFiscalizacaoDetailsScreenState
                         itemCount: ordem.demandas.length,
                         itemBuilder: (context, index) {
                           Demanda demanda = ordem.demandas[index];
-                          return Card(
-                            child: _demandaInfo(
-                              codigo: demanda.codigo,
-                              municipio: demanda.municipio,
-                              size: size,
+                          return GestureDetector(
+                            child: Card(
+                              child: _demandaInfo(
+                                codigo: demanda.codigo,
+                                municipio: demanda.municipio,
+                                size: size,
+                              ),
                             ),
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                Routes.ordemFiscalizacaoDetails,
+                                arguments: demanda,
+                              );
+                            },
                           );
                         },
                       ),
@@ -119,6 +129,7 @@ class _OrdemFiscalizacaoDetailsScreenState
                               nome,
                               style: const TextStyle(
                                 fontSize: 18,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           );
