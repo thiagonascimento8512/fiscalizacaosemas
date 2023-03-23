@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:semasfiscalizacao/model/ordem_fiscalizacao_model.dart';
+import 'package:semasfiscalizacao/routes.dart';
 
+import '../../common_widgets/data_info.dart';
+import '../../common_widgets/section_title.dart';
 import '../../model/demanda_model.dart';
 
 class OrdemFiscalizacaoDetailsScreen extends StatefulWidget {
@@ -35,28 +38,34 @@ class _OrdemFiscalizacaoDetailsScreenState
                   // DADOS
                   Column(
                     children: [
-                      _sectionTitle('Dados'),
+                      const SectionTitle(title: 'Dados'),
                       24.height,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          _dataInfo(
-                              title: 'Código', value: ordem.codigo, size: size),
-                          _dataInfo(
-                              title: 'Setor de cadastro',
-                              value: ordem.setorCadastro,
-                              size: size),
-                          _dataInfo(
-                              title: 'Data de cadastro',
-                              value: ordem.dataCadastro),
+                          DataInfo(
+                            title: 'Código',
+                            value: ordem.codigo,
+                            qtdeElementos: 3,
+                          ),
+                          DataInfo(
+                            title: 'Setor de cadastro',
+                            value: ordem.setorCadastro,
+                            qtdeElementos: 3,
+                          ),
+                          DataInfo(
+                            title: 'Data de cadastro',
+                            value: ordem.dataCadastro,
+                            qtdeElementos: 3,
+                          ),
                         ],
                       ),
                       32.height,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          _dataInfo(
+                          DataInfo(
                               title: 'Período de fiscalização',
                               value: ordem.periodoFiscalizacao),
                         ],
@@ -65,7 +74,7 @@ class _OrdemFiscalizacaoDetailsScreenState
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          _dataInfo(
+                          DataInfo(
                               title: 'Descrição da atividade',
                               value: ordem.descricaoAtividade),
                         ],
@@ -79,7 +88,7 @@ class _OrdemFiscalizacaoDetailsScreenState
                       48.height,
                       const Divider(),
                       16.height,
-                      _sectionTitle('Demandas'),
+                      const SectionTitle(title: 'Demandas'),
                       24.height,
                       ListView.builder(
                         shrinkWrap: true,
@@ -87,12 +96,21 @@ class _OrdemFiscalizacaoDetailsScreenState
                         itemCount: ordem.demandas.length,
                         itemBuilder: (context, index) {
                           Demanda demanda = ordem.demandas[index];
-                          return Card(
-                            child: _demandaInfo(
-                              codigo: demanda.codigo,
-                              municipio: demanda.municipio,
-                              size: size,
+                          return GestureDetector(
+                            child: Card(
+                              child: _demandaInfo(
+                                codigo: demanda.codigo,
+                                municipio: demanda.municipio,
+                                size: size,
+                              ),
                             ),
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                Routes.demanda,
+                                arguments: demanda,
+                              );
+                            },
                           );
                         },
                       ),
@@ -105,7 +123,7 @@ class _OrdemFiscalizacaoDetailsScreenState
                       48.height,
                       const Divider(),
                       16.height,
-                      _sectionTitle('Equipe de fiscalização'),
+                      const SectionTitle(title: 'Equipe de fiscalização'),
                       24.height,
                       ListView.builder(
                         shrinkWrap: true,
@@ -119,6 +137,7 @@ class _OrdemFiscalizacaoDetailsScreenState
                               nome,
                               style: const TextStyle(
                                 fontSize: 18,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           );
@@ -191,42 +210,5 @@ class _OrdemFiscalizacaoDetailsScreenState
             ),
           ],
         ),
-      );
-
-  Widget _dataInfo(
-          {required String title, required String value, Size? size}) =>
-      SizedBox(
-        width: size != null ? size.width * 0.3 : null,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-            ),
-            8.height,
-            Text(
-              value,
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      );
-
-  Widget _sectionTitle(String title) => Row(
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-              color: Colors.teal,
-            ),
-          ),
-        ],
       );
 }
