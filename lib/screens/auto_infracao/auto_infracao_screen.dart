@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../routes.dart';
+
 class AutoInfracaoScreen extends StatefulWidget {
   const AutoInfracaoScreen({super.key});
 
@@ -15,7 +17,19 @@ class _AutoInfracaoScreenState extends State<AutoInfracaoScreen> {
         title: const Text('Auto de Infração'),
       ),
       body: const Center(
-        child: Text('Auto de Infração'),
+        child: Text('Não existem autos de infração cadastrados.'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(
+            context,
+            Routes.autoInfracaoCadastrar,
+          );
+        },
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
       ),
     );
   }
