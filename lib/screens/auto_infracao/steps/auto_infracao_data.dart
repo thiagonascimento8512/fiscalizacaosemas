@@ -123,7 +123,7 @@ class _AutoInfracaoDataState extends State<AutoInfracaoData> {
           16.height,
           ElevatedButton(
             onPressed: showTestemunhaDialog,
-            child: const Text('Adicionar de testemunhas'),
+            child: const Text('Adicionar testemunha'),
           ),
         ],
       ),

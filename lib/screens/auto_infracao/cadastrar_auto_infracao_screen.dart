@@ -11,7 +11,6 @@ class CadastrarAutoInfracaoScreen extends StatefulWidget {
 
 class _CadastrarAutoInfracaoScreenState
     extends State<CadastrarAutoInfracaoScreen> {
-  final GlobalKey<FormState> _formKe1 = GlobalKey<FormState>();
   int currentStep = 0;
 
   @override
@@ -24,19 +23,19 @@ class _CadastrarAutoInfracaoScreenState
       ),
       body: Stepper(
         currentStep: currentStep,
-        onStepContinue: () {
+        onStepCancel: () {
           setState(() {
-            if (currentStep < 2) {
-              currentStep += 1;
+            if (currentStep > 0) {
+              currentStep -= 1;
             } else {
               currentStep = 0;
             }
           });
         },
-        onStepCancel: () {
+        onStepContinue: () {
           setState(() {
-            if (currentStep > 0) {
-              currentStep -= 1;
+            if (currentStep < 2) {
+              currentStep += 1;
             } else {
               currentStep = 0;
             }

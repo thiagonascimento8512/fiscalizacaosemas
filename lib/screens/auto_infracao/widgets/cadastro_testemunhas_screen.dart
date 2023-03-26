@@ -128,7 +128,7 @@ class _CadastroTestemunhaScreenState extends State<CadastroTestemunhaScreen> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Text('Salvar'),
+                  child: const Text('Adicionar'),
                 ),
               ],
             )
