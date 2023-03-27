@@ -1,67 +1,97 @@
-import '../model/autuado_model.dart';
+import 'package:semasfiscalizacao/model/abstract_pessoa.dart';
+import 'package:semasfiscalizacao/model/autuado_pf_model.dart';
+import 'package:semasfiscalizacao/model/autuado_pj_model.dart';
+
+import '../model/address_model.dart';
 
 class AutuadoProvider {
-  final List<Autuado> _autuados = [];
+  final List<Pessoa> _autuados = [];
 
-  List<Autuado> get autuados => _autuados;
+  List<Pessoa> get autuados => _autuados;
 
   AutuadoProvider() {
-    _autuados.add(Autuado(
-      type: 'Nome',
+    _autuados.add(AutuadoPF(
+      tipo: 'fisica',
+      identificacao: 'Nome',
       name: 'João da Silva',
-      cpfCnpj: 'CPF',
-      cpfCnpjNumber: '12345678900',
+      cpf: '12345678901',
+      rg: '123456789',
+      telefone: '11987654321',
+      addresses: [
+        Address(
+          address:
+              'Rua das Flores 123, Bairro Jardim Constância, Próximo à parada de ônibus',
+          cep: '12345-678',
+          municipio: 'São Paulo',
+        ),
+        Address(
+          address: 'Rua das Flores, 123',
+          cep: '12345-678',
+          municipio: 'São Paulo',
+        ),
+      ],
     ));
 
-    _autuados.add(Autuado(
-      type: 'Razão Social',
-      name: 'Empresa de Software LTDA',
-      cpfCnpj: 'CNPJ',
-      cpfCnpjNumber: '123456789000001',
+    _autuados.add(AutuadoPj(
+      tipo: 'juridica',
+      identificacao: 'Razão Social',
+      razaoSocial: 'Empresa de Software LTDA',
+      cnpj: 'CNPJ',
+      addresses: [
+        Address(
+          address:
+              'Rua das Flores 123, Bairro Jardim Constância, Próximo à parada de ônibus',
+          cep: '12345-678',
+          municipio: 'São Paulo',
+        ),
+        Address(
+          address: 'Rua das Flores, 123',
+          cep: '12345-678',
+          municipio: 'São Paulo',
+        ),
+      ],
     ));
 
-    _autuados.add(Autuado(
-      type: 'Nome',
-      name: 'Maria da Silva',
-      cpfCnpj: 'CPF',
-      cpfCnpjNumber: '12345678901',
+    _autuados.add(AutuadoPF(
+      tipo: 'fisica',
+      identificacao: 'Nome',
+      name: 'João da Silva',
+      cpf: '12345678901',
+      rg: '123456789',
+      telefone: '11987654321',
+      addresses: [
+        Address(
+          address:
+              'Rua das Flores 123, Bairro Jardim Constância, Próximo à parada de ônibus',
+          cep: '12345-678',
+          municipio: 'São Paulo',
+        ),
+        Address(
+          address: 'Rua das Flores, 123',
+          cep: '12345-678',
+          municipio: 'São Paulo',
+        ),
+      ],
     ));
 
-    _autuados.add(Autuado(
-      type: 'Razão Social',
-      name: 'Empresa de Software LTDA',
-      cpfCnpj: 'CNPJ',
-      cpfCnpjNumber: '123456789000002',
+    _autuados.add(AutuadoPj(
+      tipo: 'juridica',
+      identificacao: 'Razão Social',
+      razaoSocial: 'Hardware & CIA LTDA',
+      cnpj: '1234148576448',
+      addresses: [
+        Address(
+          address:
+              'Rua das Flores 123, Bairro Jardim Constância, Próximo à parada de ônibus',
+          cep: '12345-678',
+          municipio: 'São Paulo',
+        ),
+        Address(
+          address: 'Rua das Flores, 123',
+          cep: '12345-678',
+          municipio: 'São Paulo',
+        ),
+      ],
     ));
-
-    _autuados.add(Autuado(
-      type: 'Nome',
-      name: 'José da Silva',
-      cpfCnpj: 'CPF',
-      cpfCnpjNumber: '12345678902',
-    ));
-  }
-
-  void addAutuado(Autuado autuado) {
-    _autuados.add(autuado);
-  }
-
-  void removeAutuado(Autuado autuado) {
-    _autuados.remove(autuado);
-  }
-
-  void clearAutuados() {
-    _autuados.clear();
-  }
-
-  void updateAutuado(Autuado autuado) {
-    final index = _autuados.indexWhere(
-        (element) => element.cpfCnpjNumber == autuado.cpfCnpjNumber);
-    _autuados[index] = autuado;
-  }
-
-  Autuado getAutuado(String cpfCnpjNumber) {
-    return _autuados
-        .firstWhere((element) => element.cpfCnpjNumber == cpfCnpjNumber);
   }
 }
