@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:semasfiscalizacao/screens/auto_infracao/steps/auto_infracao_data.dart';
+import 'package:semasfiscalizacao/screens/auto_infracao/steps/auto_infracao_data_step.dart';
+import 'package:semasfiscalizacao/screens/auto_infracao/steps/autuado_step.dart';
 
 class CadastrarAutoInfracaoScreen extends StatefulWidget {
   const CadastrarAutoInfracaoScreen({super.key});
@@ -53,7 +54,7 @@ class _CadastrarAutoInfracaoScreenState
           ),
           Step(
             title: Text('Dados do Auto de Infração'),
-            content: AutoInfracaoData(),
+            content: AutuadoStep(),
           ),
           Step(
             title: Text('Dados do Auto de Infração'),

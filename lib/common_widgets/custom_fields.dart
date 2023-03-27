@@ -6,6 +6,7 @@ Widget customTextField({
   int lines = 1,
   required String hint,
   bool isRequired = false,
+  IconData? icon,
 }) =>
     Column(
       children: [
@@ -24,6 +25,13 @@ Widget customTextField({
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 hintText: hint,
+                suffixIcon: icon != null
+                    ? Icon(
+                        icon,
+                        color: Colors.black87,
+                        size: 28,
+                      )
+                    : null,
               ),
             ),
           ],
