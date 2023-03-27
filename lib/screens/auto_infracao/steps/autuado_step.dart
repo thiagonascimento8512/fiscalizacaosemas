@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:semasfiscalizacao/common_widgets/custom_fields.dart';
+import 'package:semasfiscalizacao/common_widgets/section_title.dart';
 
 class AutuadoStep extends StatefulWidget {
   const AutuadoStep({super.key});
@@ -17,10 +17,10 @@ class _AutuadoStepState extends State<AutuadoStep> {
       key: _formKey,
       child: Column(
         children: <Widget>[
-          customTextField(
-            label: 'Pesquisar',
-            hint: 'Pesquisar CPF/CNPJ ou nome/razão social',
-            icon: Icons.search,
+          const SectionTitle(title: 'Dados'),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text('Selecionar Autuado'),
           ),
         ],
       ),
