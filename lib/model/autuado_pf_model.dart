@@ -1,14 +1,12 @@
 import 'package:semasfiscalizacao/model/abstract_pessoa.dart';
 
 class AutuadoPF extends Pessoa {
-  final String name;
   String? rg;
-  final String cpf;
   String? telefone;
 
   AutuadoPF({
-    required this.name,
-    required this.cpf,
+    required String name,
+    required String cpf,
     this.rg,
     this.telefone,
     required String identificacao,
@@ -16,6 +14,9 @@ class AutuadoPF extends Pessoa {
     addresses = const [],
   }) : super(
           identificacao: identificacao,
+          name: name,
+          document: 'CPF',
+          documentNumber: cpf,
           tipo: tipo,
           addresses: addresses,
         );

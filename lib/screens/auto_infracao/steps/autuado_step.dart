@@ -28,7 +28,16 @@ class _AutuadoStepState extends State<AutuadoStep> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/auto_infracao/autuado')
+                .then((value) {
+              if (value != null) {
+                setState(() {
+                  autuado = value as Pessoa;
+                });
+              }
+            });
+          },
           child: const Text('Selecionar Autuado'),
         ),
         24.height,
@@ -114,7 +123,7 @@ class _AutuadoStepState extends State<AutuadoStep> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              DataInfo(title: 'CPF', value: autuado.cpf),
+              DataInfo(title: 'CPF', value: autuado.documentNumber),
               DataInfo(title: 'RG', value: autuado.rg ?? 'Não informado'),
               DataInfo(
                   title: 'Telefone',
@@ -131,12 +140,12 @@ class _AutuadoStepState extends State<AutuadoStep> {
       children: [
         Row(
           children: [
-            DataInfo(title: 'Razão Social', value: autuado.razaoSocial),
+            DataInfo(title: 'Razão Social', value: autuado.name),
           ],
         ),
         Row(
           children: [
-            DataInfo(title: 'CNPJ', value: autuado.cnpj),
+            DataInfo(title: 'CNPJ', value: autuado.documentNumber),
           ],
         ),
       ],
