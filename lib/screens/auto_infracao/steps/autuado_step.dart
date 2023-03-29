@@ -4,6 +4,7 @@ import 'package:semasfiscalizacao/common_widgets/data_info.dart';
 import 'package:semasfiscalizacao/common_widgets/section_title.dart';
 import 'package:semasfiscalizacao/model/autuado_pf_model.dart';
 import 'package:semasfiscalizacao/providers/autuado_provider.dart';
+import 'package:semasfiscalizacao/screens/auto_infracao/widgets/cadastro_address.dart';
 
 import '../../../model/abstract_pessoa.dart';
 import '../../../model/address_model.dart';
@@ -25,6 +26,16 @@ class _AutuadoStepState extends State<AutuadoStep> {
   void initState() {
     super.initState();
     _selectedAutuado = _autuadoProvider.autuados.first;
+  }
+
+  void showAddressDialog() {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return const CadastroAddress();
+      },
+    );
   }
 
   @override
@@ -93,7 +104,7 @@ class _AutuadoStepState extends State<AutuadoStep> {
         ),
         24.height,
         ElevatedButton(
-          onPressed: () {},
+          onPressed: showAddressDialog,
           child: const Text('Adicionar Endereço'),
         ),
       ],

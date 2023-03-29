@@ -5,7 +5,7 @@ import 'model/demanda_model.dart';
 import 'model/ordem_fiscalizacao_model.dart';
 import 'screens/auto_infracao/auto_infracao_screen.dart';
 import 'screens/auto_infracao/cadastrar_auto_infracao_screen.dart';
-import 'screens/auto_infracao/steps/select_autuado.dart';
+import 'screens/auto_infracao/widgets/select_autuado.dart';
 import 'screens/ordem_fiscalizacao/demanda_screen.dart';
 import 'screens/ordem_fiscalizacao/ordem_fiscalizacao_details_screen.dart';
 import 'screens/ordem_fiscalizacao/ordem_fiscalizacao_screen.dart';
