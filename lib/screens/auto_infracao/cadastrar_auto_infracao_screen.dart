@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:semasfiscalizacao/screens/auto_infracao/steps/auto_infracao_data_step.dart';
 import 'package:semasfiscalizacao/screens/auto_infracao/steps/autuado_step.dart';
 import 'package:semasfiscalizacao/screens/auto_infracao/steps/localizacao_step.dart';
+import 'package:semasfiscalizacao/screens/auto_infracao/steps/multa_step.dart';
 
 import 'steps/enquadramento_step.dart';
 
@@ -39,7 +40,7 @@ class _CadastrarAutoInfracaoScreenState
         },
         onStepContinue: () {
           setState(() {
-            if (currentStep < 3) {
+            if (currentStep < 4) {
               currentStep += 1;
             } else {
               currentStep = 0;
@@ -67,6 +68,10 @@ class _CadastrarAutoInfracaoScreenState
           Step(
             title: Text('Enquadramento'),
             content: EnquadramentoStep(),
+          ),
+          Step(
+            title: Text('Valor da Multa'),
+            content: MultaStep(),
           ),
         ],
       ),
