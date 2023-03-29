@@ -23,11 +23,13 @@ class AutuadoProvider {
               'Rua das Flores 123, Bairro Jardim Constância, Próximo à parada de ônibus',
           cep: '12345-678',
           municipio: 'São Paulo',
+          uf: 'SP',
         ),
         Address(
           address: 'Rua das Flores, 123',
           cep: '12345-678',
           municipio: 'São Paulo',
+          uf: 'SP',
         ),
       ],
     ));
@@ -43,11 +45,13 @@ class AutuadoProvider {
               'Rua das Flores 123, Bairro Jardim Constância, Próximo à parada de ônibus',
           cep: '12345-678',
           municipio: 'São Paulo',
+          uf: 'SP',
         ),
         Address(
           address: 'Rua das Flores, 123',
           cep: '12345-678',
           municipio: 'São Paulo',
+          uf: 'SP',
         ),
       ],
     ));
@@ -65,11 +69,13 @@ class AutuadoProvider {
               'Rua das Flores 123, Bairro Jardim Constância, Próximo à parada de ônibus',
           cep: '12345-678',
           municipio: 'São Paulo',
+          uf: 'SP',
         ),
         Address(
           address: 'Rua das Flores, 123',
           cep: '12345-678',
           municipio: 'São Paulo',
+          uf: 'SP',
         ),
       ],
     ));
@@ -85,11 +91,13 @@ class AutuadoProvider {
               'Rua das Flores 123, Bairro Jardim Constância, Próximo à parada de ônibus',
           cep: '12345-678',
           municipio: 'São Paulo',
+          uf: 'SP',
         ),
         Address(
           address: 'Rua das Flores, 123',
           cep: '12345-678',
           municipio: 'São Paulo',
+          uf: 'SP',
         ),
       ],
     ));

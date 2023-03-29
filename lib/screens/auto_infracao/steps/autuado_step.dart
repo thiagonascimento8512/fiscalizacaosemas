@@ -19,11 +19,16 @@ class AutuadoStep extends StatefulWidget {
 class _AutuadoStepState extends State<AutuadoStep> {
   final AutuadoProvider _autuadoProvider = AutuadoProvider();
   Address? _selectedAddress;
+  late Pessoa _selectedAutuado;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedAutuado = _autuadoProvider.autuados.first;
+  }
 
   @override
   Widget build(BuildContext context) {
-    Pessoa autuado = _autuadoProvider.autuados[0];
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -33,7 +38,7 @@ class _AutuadoStepState extends State<AutuadoStep> {
                 .then((value) {
               if (value != null) {
                 setState(() {
-                  autuado = value as Pessoa;
+                  _selectedAutuado = value as Pessoa;
                 });
               }
             });
@@ -49,9 +54,9 @@ class _AutuadoStepState extends State<AutuadoStep> {
         24.height,
         Row(
           children: [
-            autuado.tipo == 'fisica'
-                ? _buildAutuadoPF(autuado as AutuadoPF)
-                : _buildAutuadoPJ(autuado as AutuadoPj),
+            _selectedAutuado.tipo == 'fisica'
+                ? _buildAutuadoPF(_selectedAutuado as AutuadoPF)
+                : _buildAutuadoPJ(_selectedAutuado as AutuadoPj),
           ],
         ),
         24.height,
@@ -65,18 +70,18 @@ class _AutuadoStepState extends State<AutuadoStep> {
         ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: autuado.addresses.length * 2 - 1,
+          itemCount: _selectedAutuado.addresses.length * 2 - 1,
           itemBuilder: (context, index) {
             if (index.isEven) {
               return RadioListTile(
-                value: autuado.addresses[index ~/ 2],
+                value: _selectedAutuado.addresses[index ~/ 2],
                 groupValue: _selectedAddress,
                 onChanged: (Address? value) {
                   setState(() {
                     _selectedAddress = value;
                   });
                 },
-                title: _buildEndereco(autuado.addresses[index ~/ 2]),
+                title: _buildEndereco(_selectedAutuado.addresses[index ~/ 2]),
               );
             } else {
               return const Padding(
@@ -85,6 +90,11 @@ class _AutuadoStepState extends State<AutuadoStep> {
               );
             }
           },
+        ),
+        24.height,
+        ElevatedButton(
+          onPressed: () {},
+          child: const Text('Adicionar Endereço'),
         ),
       ],
     );
@@ -103,7 +113,9 @@ class _AutuadoStepState extends State<AutuadoStep> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             DataInfo(title: 'CEP', value: address.cep),
-            DataInfo(title: 'Municipio', value: address.municipio),
+            DataInfo(
+                title: 'Municipio/UF',
+                value: '${address.municipio}/${address.uf}'),
           ],
         ),
       ],
