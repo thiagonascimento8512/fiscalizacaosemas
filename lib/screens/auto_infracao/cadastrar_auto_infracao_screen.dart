@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:semasfiscalizacao/screens/auto_infracao/steps/auto_infracao_data_step.dart';
 import 'package:semasfiscalizacao/screens/auto_infracao/steps/autuado_step.dart';
+import 'package:semasfiscalizacao/screens/auto_infracao/steps/localizacao_step.dart';
 
 class CadastrarAutoInfracaoScreen extends StatefulWidget {
   const CadastrarAutoInfracaoScreen({super.key});
@@ -24,6 +25,7 @@ class _CadastrarAutoInfracaoScreenState
       ),
       body: Stepper(
         currentStep: currentStep,
+        physics: const ClampingScrollPhysics(),
         onStepCancel: () {
           setState(() {
             if (currentStep > 0) {
@@ -57,8 +59,8 @@ class _CadastrarAutoInfracaoScreenState
             content: AutuadoStep(),
           ),
           Step(
-            title: Text('Dados do Auto de Infração'),
-            content: AutoInfracaoData(),
+            title: Text('Local da Infração'),
+            content: LocalizacaoStep(),
           ),
         ],
       ),
