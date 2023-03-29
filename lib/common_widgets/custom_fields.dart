@@ -7,6 +7,7 @@ Widget customTextField({
   required String hint,
   bool isRequired = false,
   IconData? icon,
+  TextEditingController? controller,
 }) =>
     Column(
       children: [
@@ -17,6 +18,7 @@ Widget customTextField({
             8.height,
             TextFormField(
               maxLines: lines,
+              controller: controller,
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.all(15.0),
                 // labelText: label,

@@ -1,3 +1,4 @@
+import 'package:extended_masked_text/extended_masked_text.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:semasfiscalizacao/common_widgets/custom_fields.dart';
@@ -11,6 +12,12 @@ class MultaStep extends StatefulWidget {
 }
 
 class _MultaStepState extends State<MultaStep> {
+  final _controller = MoneyMaskedTextController(
+    decimalSeparator: ',',
+    thousandSeparator: '.',
+    leftSymbol: 'R\$ ',
+  );
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,8 +32,11 @@ class _MultaStepState extends State<MultaStep> {
                 .expand(),
             16.width,
             customTextField(
-                    label: 'Valor da Multa', hint: 'R\$ 0,00', isRequired: true)
-                .expand(),
+              label: 'Valor da Multa',
+              hint: 'R\$ 0,00',
+              isRequired: true,
+              controller: _controller,
+            ).expand(),
           ],
         ),
       ],
