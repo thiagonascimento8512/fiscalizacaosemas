@@ -3,6 +3,8 @@ import 'package:semasfiscalizacao/screens/auto_infracao/steps/auto_infracao_data
 import 'package:semasfiscalizacao/screens/auto_infracao/steps/autuado_step.dart';
 import 'package:semasfiscalizacao/screens/auto_infracao/steps/localizacao_step.dart';
 
+import 'steps/enquadramento_step.dart';
+
 class CadastrarAutoInfracaoScreen extends StatefulWidget {
   const CadastrarAutoInfracaoScreen({super.key});
 
@@ -37,7 +39,7 @@ class _CadastrarAutoInfracaoScreenState
         },
         onStepContinue: () {
           setState(() {
-            if (currentStep < 2) {
+            if (currentStep < 3) {
               currentStep += 1;
             } else {
               currentStep = 0;
@@ -61,6 +63,10 @@ class _CadastrarAutoInfracaoScreenState
           Step(
             title: Text('Local da Infração'),
             content: LocalizacaoStep(),
+          ),
+          Step(
+            title: Text('Enquadramento'),
+            content: EnquadramentoStep(),
           ),
         ],
       ),
