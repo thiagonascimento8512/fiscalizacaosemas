@@ -3,6 +3,8 @@ import 'package:semasfiscalizacao/screens/apreensao_deposito/deposito/steps/depo
 import 'package:semasfiscalizacao/screens/apreensao_deposito/deposito/steps/deposito_depositario.dart';
 import 'package:semasfiscalizacao/screens/apreensao_deposito/deposito/steps/deposito_itens_step.dart';
 
+import 'steps/deposito_local_step.dart';
+
 class CadastrarDeposito extends StatefulWidget {
   const CadastrarDeposito({super.key});
 
@@ -59,6 +61,10 @@ class _CadastrarDepositoState extends State<CadastrarDeposito> {
           Step(
             title: Text('Depositário'),
             content: DepositoDepositarioStep(),
+          ),
+          Step(
+            title: Text('Local do depósito'),
+            content: DepositoLocalStep(),
           ),
         ],
       ),
