@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:semasfiscalizacao/screens/apreensao_deposito/deposito/steps/deposito_dados_step.dart';
+import 'package:semasfiscalizacao/screens/apreensao_deposito/deposito/steps/deposito_itens_step.dart';
 
 class CadastrarDeposito extends StatefulWidget {
   const CadastrarDeposito({super.key});
@@ -49,6 +50,10 @@ class _CadastrarDepositoState extends State<CadastrarDeposito> {
           Step(
             title: Text('Dados'),
             content: DepositoDadosStep(),
+          ),
+          Step(
+            title: Text('Itens Depositados'),
+            content: DepositoItensStep(),
           ),
         ],
       ),
