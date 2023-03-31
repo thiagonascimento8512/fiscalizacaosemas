@@ -5,6 +5,7 @@ import 'package:semasfiscalizacao/screens/apreensao_deposito/apreensao_deposito_
 import 'home_screen.dart';
 import 'model/demanda_model.dart';
 import 'model/ordem_fiscalizacao_model.dart';
+import 'screens/apreensao_deposito/apreensao_deposito/cadastro_apreensao_deposito.dart';
 import 'screens/apreensao_deposito/deposito/cadastrar_deposito.dart';
 import 'screens/auto_infracao/auto_infracao_screen.dart';
 import 'screens/auto_infracao/cadastrar_auto_infracao_screen.dart';
@@ -26,6 +27,8 @@ class Routes {
       '/apreensao_deposito/apreensao_cadastro';
   static const String depositoCadastro =
       '/apreensao_deposito/deposito_cadastro';
+  static const String apreensaoDepositoCadastro =
+      '/apreensao_deposito/cadastro_apreensao_deposito';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -72,6 +75,10 @@ class Routes {
       case depositoCadastro:
         return MaterialPageRoute(
           builder: (_) => const CadastrarDeposito(),
+        );
+      case apreensaoDepositoCadastro:
+        return MaterialPageRoute(
+          builder: (_) => const CadastroApreensaoDeposito(),
         );
       default:
         return MaterialPageRoute(

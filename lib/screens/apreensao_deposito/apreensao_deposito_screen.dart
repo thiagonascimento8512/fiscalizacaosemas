@@ -52,6 +52,7 @@ class _ApreensaoDepositoScreenState extends State<ApreensaoDepositoScreen> {
             SimpleDialogOption(
               onPressed: () {
                 Navigator.of(context).pop();
+                Navigator.pushNamed(context, Routes.apreensaoDepositoCadastro);
               },
               child: const Padding(
                 padding: EdgeInsets.all(8.0),
