@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:nb_utils/nb_utils.dart';
+import 'package:semasfiscalizacao/common_widgets/custom_fields.dart';
+import 'package:semasfiscalizacao/common_widgets/section_title.dart';
+
+import '../../../../common_widgets/cadastro_testemunhas_screen.dart';
 
 class DepositoDadosStep extends StatefulWidget {
   const DepositoDadosStep({super.key});
@@ -8,40 +13,52 @@ class DepositoDadosStep extends StatefulWidget {
 }
 
 class _DepositoDadosStepState extends State<DepositoDadosStep> {
+  void showTestemunhaDialog() {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return const CadastroTestemunhaScreen();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: 'Nome',
-            ),
+          const SectionTitle(title: 'Depósito'),
+          16.height,
+          Row(
+            children: [
+              Expanded(
+                child: customTextField(
+                    label: 'Ordem de fiscalização', hint: 'Informe o código'),
+              ),
+              16.width,
+              Expanded(
+                child: customTextField(
+                    label: 'Agente de fiscalização',
+                    hint: 'Selecione um agente de fiscalização'),
+              ),
+            ],
           ),
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: 'CPF',
-            ),
+          16.height,
+          customTextField(
+            label: 'Observação',
+            hint: 'Descreva a observação do depósito',
+            lines: 3,
           ),
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: 'RG',
-            ),
-          ),
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: 'Endereço',
-            ),
-          ),
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: 'Telefone',
-            ),
-          ),
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: 'Email',
-            ),
+          24.height,
+          const Divider(),
+          16.height,
+          const SectionTitle(title: 'Testemunhas'),
+          16.height,
+          ElevatedButton(
+            onPressed: showTestemunhaDialog,
+            child: const Text('Adicionar testemunha'),
           ),
         ],
       ),
