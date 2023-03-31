@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:semasfiscalizacao/screens/apreensao_deposito/apreensao/cadastrar_apreensao.dart';
 import 'package:semasfiscalizacao/screens/apreensao_deposito/apreensao_deposito_screen.dart';
 
 import 'home_screen.dart';
@@ -20,6 +21,8 @@ class Routes {
   static const String autoInfracaoCadastrar = '/auto_infracao/cadastrar';
   static const String autoInfracaoSelectAutuado = '/auto_infracao/autuado';
   static const String apreensaoDeposito = '/apreensao_deposito';
+  static const String apreensaoCadastro =
+      '/apreensao_deposito/apreensao_cadastro';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -58,6 +61,10 @@ class Routes {
       case apreensaoDeposito:
         return MaterialPageRoute(
           builder: (_) => const ApreensaoDepositoScreen(),
+        );
+      case apreensaoCadastro:
+        return MaterialPageRoute(
+          builder: (_) => const CadastrarApreensao(),
         );
       default:
         return MaterialPageRoute(

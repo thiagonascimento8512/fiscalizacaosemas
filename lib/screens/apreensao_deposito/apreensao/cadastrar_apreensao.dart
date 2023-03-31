@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:semasfiscalizacao/screens/apreensao_deposito/steps/ad_dados_step.dart';
+import 'package:semasfiscalizacao/screens/apreensao_deposito/apreensao/steps/ad_dados_step.dart';
 
-class CadastrarApreensaoDeposito extends StatefulWidget {
-  const CadastrarApreensaoDeposito({super.key});
+class CadastrarApreensao extends StatefulWidget {
+  const CadastrarApreensao({super.key});
 
   @override
-  State<CadastrarApreensaoDeposito> createState() =>
-      _CadastrarApreensaoDepositoState();
+  State<CadastrarApreensao> createState() => _CadastrarApreensaoState();
 }
 
-class _CadastrarApreensaoDepositoState
-    extends State<CadastrarApreensaoDeposito> {
+class _CadastrarApreensaoState extends State<CadastrarApreensao> {
   int currentStep = 0;
 
   @override
@@ -18,7 +16,7 @@ class _CadastrarApreensaoDepositoState
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Cadastrar Auto de Infração',
+          'Cadastro de Apreensão',
         ),
       ),
       body: Stepper(
@@ -49,7 +47,7 @@ class _CadastrarApreensaoDepositoState
         },
         steps: const [
           Step(
-            title: Text('Dados da Infração'),
+            title: Text('Dados'),
             content: AdDadosStep(),
           ),
         ],

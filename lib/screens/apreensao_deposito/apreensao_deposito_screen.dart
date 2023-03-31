@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:semasfiscalizacao/routes.dart';
 
 class ApreensaoDepositoScreen extends StatefulWidget {
   const ApreensaoDepositoScreen({super.key});
@@ -29,6 +30,7 @@ class _ApreensaoDepositoScreenState extends State<ApreensaoDepositoScreen> {
             SimpleDialogOption(
               onPressed: () {
                 Navigator.of(context).pop();
+                Navigator.pushNamed(context, Routes.apreensaoCadastro);
               },
               child: const Padding(
                 padding: EdgeInsets.all(8.0),

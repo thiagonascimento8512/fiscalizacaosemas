@@ -3,7 +3,7 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:semasfiscalizacao/common_widgets/custom_fields.dart';
 import 'package:semasfiscalizacao/common_widgets/section_title.dart';
 import 'package:semasfiscalizacao/model/testemunha_model.dart';
-import 'package:semasfiscalizacao/screens/auto_infracao/widgets/cadastro_testemunhas_screen.dart';
+import 'package:semasfiscalizacao/common_widgets/cadastro_testemunhas_screen.dart';
 
 import '../../../common_widgets/data_info.dart';
 
