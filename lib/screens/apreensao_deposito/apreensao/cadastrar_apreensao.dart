@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:semasfiscalizacao/screens/apreensao_deposito/apreensao/steps/ad_dados_step.dart';
+import 'package:semasfiscalizacao/screens/apreensao_deposito/apreensao/steps/itens_apreendidos_step.dart';
 
 class CadastrarApreensao extends StatefulWidget {
   const CadastrarApreensao({super.key});
@@ -49,6 +50,10 @@ class _CadastrarApreensaoState extends State<CadastrarApreensao> {
           Step(
             title: Text('Dados'),
             content: AdDadosStep(),
+          ),
+          Step(
+            title: Text('Itens Apreendidos'),
+            content: ItensApreendidosStep(),
           ),
         ],
       ),
