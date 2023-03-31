@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:semasfiscalizacao/screens/apreensao_deposito/apreensao/steps/ad_dados_step.dart';
+import 'package:semasfiscalizacao/screens/apreensao_deposito/apreensao/steps/apreensao_localizacao_step.dart';
 import 'package:semasfiscalizacao/screens/apreensao_deposito/apreensao/steps/itens_apreendidos_step.dart';
 
 class CadastrarApreensao extends StatefulWidget {
@@ -54,6 +55,10 @@ class _CadastrarApreensaoState extends State<CadastrarApreensao> {
           Step(
             title: Text('Itens Apreendidos'),
             content: ItensApreendidosStep(),
+          ),
+          Step(
+            title: Text('Local da Apreensão'),
+            content: ApreensaoLocalizacaoStep(),
           ),
         ],
       ),
