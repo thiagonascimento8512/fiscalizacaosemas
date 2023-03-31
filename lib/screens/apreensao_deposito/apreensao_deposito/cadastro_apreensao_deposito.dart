@@ -51,6 +51,14 @@ class _CadastroApreensaoDepositoState extends State<CadastroApreensaoDeposito> {
             title: Text('Dados'),
             content: ApreensaoDepositoDadosStep(),
           ),
+          Step(
+            title: Text('Itens apreendidos'),
+            content: Text('Itens apreendidos'),
+          ),
+          Step(
+            title: Text('Local da apreensão e depósito'),
+            content: Text('Itens depositados'),
+          ),
         ],
       ),
     );
